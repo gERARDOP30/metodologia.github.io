@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GUIA TURISITICO DE PETEN</title>
+</head>
+<style>
+  /* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: beige;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+  }
+  
+  header {
+    background-color: #0a285e;
+    color: #fff;
+    padding: 10px;
+    position: sticky;
+    top: 0;
+  }
+  
+  nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+  }
+  
+  nav ul li {
+    display: inline;
+    margin-right: 10px;
+  }
+  
+  nav ul li a {
+    color: #fff;
+    text-decoration: none;
+  }
+  
+  section {
+    margin: 20px;
+  }
+  
+  h1 {
+    color: #fff5f5;
+  }
+  h2{
+    color: #fff5f5;
+  }
+  
+  /* Estilos específicos */
+  section {
+    margin: 20px;
+  }
+  .slider h1 img
+  {
+      height: 240px; 
+      width: 280px; 
+  } 
+  
+  .slider{width: 98%;
+      height: 300%;   
+  }
+  .slider input{display: none;}
+  .testimonials{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: center;
+      min-height: 480px;
+      perspective: 350px;
+      overflow: hidden;
+  }
+  .testimonials .item{
+      width: 350px;
+      padding: 35px;
+      border-radius: 15px;
+      background-color: #092245;
+      position: absolute;
+      border:5px solid rgb(167, 173, 14);
+      top: 0;
+      box-sizing: border-box;
+      text-align: center;
+      transition: transform 0.7s;
+      box-shadow: 0 0 10px rgba(4, 3, 35, 0.541);
+      user-select: none;
+      cursor: pointer;
+  }
+  .testimonials .item h1{font-size: 65px; color: rgb(245, 55, 55);}
+  .dots{display: flex; justify-content: center;align-items: center;}
+  .dots label{
+      height: 7px;
+      width: 7px;
+      border-radius: 80%;
+      cursor: pointer;
+      margin: 7px;
+      transition-duration: 0.2s;
+  }
+  #t-1:checked ~ .dots label[for="t-1"],
+  #t-2:checked ~ .dots label[for="t-2"],
+  #t-3:checked ~ .dots label[for="t-3"],
+  #t-4:checked ~ .dots label[for="t-4"],
+  #t-5:checked ~ .dots label[for="t-5"]{
+      transform: scale(2);
+  }
+  
+  #t-1:checked ~ .dots label[for="t-2"],
+  #t-2:checked ~ .dots label[for="t-1"],
+  #t-2:checked ~ .dots label[for="t-3"],
+  #t-3:checked ~ .dots label[for="t-2"],
+  #t-3:checked ~ .dots label[for="t-4"],
+  #t-4:checked ~ .dots label[for="t-3"],
+  #t-4:checked ~ .dots label[for="t-5"],
+  #t-5:checked ~ .dots label[for="t-4"]{
+      transform: scale(1.5);
+  }
+  
+  #t-1:checked ~ .testimonials label[for="t-3"],
+  #t-2:checked ~ .testimonials label[for="t-4"],
+  #t-3:checked ~ .testimonials label[for="t-5"],
+  #t-4:checked ~ .testimonials label[for="t-1"],
+  #t-5:checked ~ .testimonials label[for="t-2"]{
+      transform: translate3d(600px, 0, -180px) rotateY(-25deg);
+      z-index: 2;
+  }
+  
+  #t-1:checked ~ .testimonials label[for="t-2"],
+  #t-2:checked ~ .testimonials label[for="t-3"],
+  #t-3:checked ~ .testimonials label[for="t-4"],
+  #t-4:checked ~ .testimonials label[for="t-5"],
+  #t-5:checked ~ .testimonials label[for="t-1"]{
+      transform: translate3d(300px, 0, -90px) rotateY(-15deg);
+      z-index: 3;
+  }
+  
+  #t-2:checked ~ .testimonials label[for="t-1"],
+  #t-3:checked ~ .testimonials label[for="t-2"],
+  #t-4:checked ~ .testimonials label[for="t-3"],
+  #t-5:checked ~ .testimonials label[for="t-4"],
+  #t-1:checked ~ .testimonials label[for="t-5"]{
+      transform: translate3d(-300px, 0, -90px) rotateY(15deg);
+      z-index: 3;
+  }
+  
+  #t-3:checked ~ .testimonials label[for="t-1"],
+  #t-4:checked ~ .testimonials label[for="t-2"],
+  #t-5:checked ~ .testimonials label[for="t-3"],
+  #t-2:checked ~ .testimonials label[for="t-5"],
+  #t-1:checked ~ .testimonials label[for="t-4"]{
+      transform: translate3d(-600px, 0, -180px) rotateY(25deg);
+      
+  }
+  
+  #t-1:checked ~ .testimonials label[for="t-1"],
+  #t-2:checked ~ .testimonials label[for="t-2"],
+  #t-3:checked ~ .testimonials label[for="t-3"],
+  #t-4:checked ~ .testimonials label[for="t-4"],
+  #t-5:checked ~ .testimonials label[for="t-4"],
+  #t-5:checked ~ .testimonials label[for="t-5"]{
+      
+      z-index: 4;
+  }
+  
+  
+  
+  footer {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+  }
+  
+  
+  .image-with-text {
+    display: flex;
+    justify-content: flex-start;
+    margin: 8%;
+    }
+    
+    .image-with-text img {
+    width: 50%;
+    height: auto;
+    padding: 20px;
+    }
+    
+    .image-with-text .text {
+    width: 70%;
+    padding: 0 20px;
+    color: #fff5f5;
+    font-family:cursive;
+    }
+    
+    .image-with-text .text h2 {
+    font-weight: bold;
+    font-size: 24px;
+    margin-top: 0;
+    }
+    
+    .image-with-text .text p {
+    margin: 0;
+    }
+
+    .contenedor{
+      background-image: url(https://media.istockphoto.com/id/471390160/es/foto/atitl%C3%A1n-guatemala.jpg?s=612x612&w=0&k=20&c=xbE9LJIGPiRIy6V1pjNrHpmWZVRlAcfhpF02cRdp-bs=);
+      width: 1000px;
+       max-width: 1000PX;
+      margin:0 auto ;
+      overflow: hidden;
+      background-repeat: no-repeat;
+    background-size: cover;
+
+
+    }
+  
+</style>
+
+<body>
+  <aside class="contenedor">
+  <header>
+    <center><h1>GUIA TURISITICA DE PETEN </h1></center>
+    <nav>
+      <ul>
+        <li><a href="hoteles.html">Hoteles&nbsp;&nbsp;&nbsp;</a></li>
+        <li><a href="transporte.html">Transportes&nbsp;&nbsp;&nbsp;</a></li>
+        <li><a href="restaurantes.html">Gastronomia&nbsp;&nbsp;&nbsp;</a></li>
+        <li><a href="hospitales.html">Hospitales&nbsp;&nbsp;&nbsp;</a></li>
+        <li><a href="TENIDO.html">Informacion Turistica &nbsp;&nbsp;&nbsp;</a></li>
+        <li><a href="Sitios Arqueologicos.html">Sitios Arqueologicos &nbsp;&nbsp;&nbsp;</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="slider">
+    <input type="radio" name="testimonial" id="t-1">
+    <input type="radio" name="testimonial" id="t-2">
+    <input type="radio" name="testimonial" id="t-3" checked>
+    <input type="radio" name="testimonial" id="t-4">
+    <input type="radio" name="testimonial" id="t-5">
+    <section class="testimonials">
+      <label class="item" for="t-1">
+        <h1><a href=""><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTKGg-tH5ta-idDUoSzUnAINsc-6UklVRvRUsdlKrit3g&s" alt=""></a></h2>
+      </label>
+      <label class="item" for="t-2">
+        <h1><a href="hoteles.html"><img src="https://sp-ao.shortpixel.ai/client/to_webp,q_glossy,ret_img,w_240,h_300/https://xibalbus.com/wp-content/uploads/2023/02/hoteles-de-peten-240x300.png" alt=""></a></h2>
+      </label>
+      <label class="item" for="t-3">
+        <h1><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRUa4H-fVNjc01-yGJQkS6WRPbRRn3zHevTug&s" alt=""></h2>
+      </label>
+      <label class="item" for="t-4">
+        <h1><a href="restaurantes.html"><img src="https://www.dafont.com/forum/attach/orig/7/1/715182.jpg" alt=""></a></h2>
+      </label>
+      <label class="item" for="t-5">
+        <h1><a href="transporte.html"><img src="https://www.marvelustravel.com/rutas/guatemala/imagenes/fdn-maya/maya-de-oro/maya-de-oro4.jpg" alt=""></a></h2>
+      </label>
+    </section>
+    <br/>
+    <section class="dots">
+      <label for="t-1"></label>
+      <label for="t-2"></label>
+      <label for="t-3"></label>
+      <label for="t-4"></label>
+      <label for="t-5"></label>
+    </section>
+  </section>
+  <style>
+    h2
+    {
+        background-color: yellow;
+        color: rgb(6, 6, 13);
+    }
+  </style>
+  <br>
+    <center><h2>BIENVENIDO A GUIA DE TURISTAS UMG</h2></center>
+  <br></br>
+  <nav>
+  <ul>
+  <li><a href="https://www.instagram.com/restaurante.matambre/">Instagram</a> </li> 
+  <li><a href="https://www.instagram.com/restaurante.matambre/">Facebook</a> </li>
+  <li><a href="https://www.instagram.com/restaurante.matambre/">Twitter</a></li>
+  </ul>
+  </nav> 
+  <style>
+    p 
+    {
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    }
+  </style>
+  <div class="image-with-text">
+    <img src="https://elpaisdelosjovenes.com/wp-content/uploads/2017/11/%C2%B4peten.jpg" alt="Image description">
+    <div class="text">
+        <br>
+    <h2>Reseñas.</h2>
+    <p>Contamos con la aprovacion de los mejores lugares y guias turisisticas de Petén asiendo la facilitacion de viajes familiares.</p>
+    </div>
+    </div>
+       
+    <div class="image-with-text">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS21CtG3yUaJDrFByJ1yv_9KWieMQ8MujQ5rA&s" alt="Image description">
+    <div class="text">
+        <br>
+    <h2>Variedad.</h2>
+    <p>Contamos con amplia variedad de lugares y sitios donde hospedarse con restaurante y piscioas con los mejores precios”. </p>
+    </div>
+    </div>
+     
+    <div class="image-with-text">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRkLLoCaq82bt7LduhSbAnVZGxYF4nxQts6Rw&s">
+    <div class="text">
+        <br>
+    <h2>Ubicacion.</h2>
+    <p>Nos encontramos ubicados en Petén en la sucursal Mariano Galvez.</p>
+    </div>
+    </div>
+    
+    
+    
+
+  <footer>
+    <p><h3><m><i>SI DESEAS VIAJER DEBES VIAJAR  ATT: GUIA DE ESTUDIANTES UMG</i></m></h3></p>
+  </footer>
+</aside>
+</body>
+</html>
